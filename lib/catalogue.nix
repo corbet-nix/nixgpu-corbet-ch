@@ -107,12 +107,11 @@
         # this vendor cell to do useful work. Keeping it vendor-gated also preserves the contract
         # that `vendor = null` contributes no compute packages.
         { arch = "python-pyopencl"; nixpkgs = "python3Packages.pyopencl"; }
-        # AUR, VERSIONED. The unversioned `intel-oneapi-basekit` is NOT a resolvable pacman sync
-        # target -- confirmed live, `pacman -Si intel-oneapi-basekit` reports nothing -- it only
-        # ever "worked" on a host where the versioned package below happened to already be
-        # installed and `Provides:` the unversioned name. This entry fixes that latent catalogue
-        # bug: the real, live, resolvable name is the dated one.
-        { arch = "intel-oneapi-basekit-2025"; aur = true; nixpkgs = null; }
+        # Official repo (cachyos-extra-v3/extra), NOT AUR. Replaces the retired AUR
+        # `intel-oneapi-basekit-2025`, which conflicts with this toolkit (both provide
+        # intel-oneapi-mkl et al) while the toolkit is what `ggml-sycl` (via intel-llm)
+        # and `python-pytorch` actually resolve against live (2026-09-16).
+        { arch = "intel-oneapi-toolkit"; nixpkgs = null; }
         # nixpkgs has no equivalent BUNDLE (no combined oneAPI basekit derivation exists there at
         # all), so the two runtime libraries most workloads actually reach for are named
         # separately instead of left absent. This is not a 1:1 substitute for the Arch entry above

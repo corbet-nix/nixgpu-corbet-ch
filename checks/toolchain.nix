@@ -148,12 +148,13 @@ let
     (check "policy/compute-amd-resolves-to-rocm"
       (lib.elem "rocm-hip-sdk" policyAmdCompute.nixgpu.toolchain.archPackages
         && !(lib.elem "cuda" policyAmdCompute.nixgpu.toolchain.archPackages)
-        && !(lib.elem "intel-oneapi-basekit-2025" policyAmdCompute.nixgpu.toolchain.aurPackages))
+        && !(lib.elem "intel-oneapi-toolkit" policyAmdCompute.nixgpu.toolchain.archPackages))
       "archPackages: ${builtins.toJSON policyAmdCompute.nixgpu.toolchain.archPackages}")
 
-    (check "policy/compute-intel-resolves-to-oneapi-basekit-versioned-name"
-      (lib.elem "intel-oneapi-basekit-2025" policyIntelCompute.nixgpu.toolchain.aurPackages
-        && !(lib.elem "intel-oneapi-basekit" policyIntelCompute.nixgpu.toolchain.aurPackages)
+    (check "policy/compute-intel-resolves-to-oneapi-toolkit"
+      (lib.elem "intel-oneapi-toolkit" policyIntelCompute.nixgpu.toolchain.archPackages
+        && !(lib.elem "intel-oneapi-basekit" policyIntelCompute.nixgpu.toolchain.archPackages)
+        && !(lib.elem "intel-oneapi-basekit-2025" policyIntelCompute.nixgpu.toolchain.aurPackages)
         && !(lib.elem "rocm-hip-sdk" policyIntelCompute.nixgpu.toolchain.archPackages))
       "aurPackages: ${builtins.toJSON policyIntelCompute.nixgpu.toolchain.aurPackages}, archPackages: ${builtins.toJSON policyIntelCompute.nixgpu.toolchain.archPackages}")
 
@@ -392,11 +393,11 @@ let
       )
       "nixarch.packages.pacman leaked vendor telemetry into probes")
 
-    (check "arch/publishes-aurPackages-into-nixarch-packages-aur-not-pacman"
+    (check "arch/publishes-toolkit-into-nixarch-packages-pacman-not-aur"
       (
         let c = evalSm { nixgpu.toolchain.enable = true; nixgpu.toolchain.vendor = "intel"; nixgpu.toolchain.capabilities.compute.enable = true; };
-        in lib.elem "intel-oneapi-basekit-2025" c.nixarch.packages.aur
-          && !(lib.elem "intel-oneapi-basekit-2025" c.nixarch.packages.pacman)
+        in lib.elem "intel-oneapi-toolkit" c.nixarch.packages.pacman
+          && !(lib.elem "intel-oneapi-toolkit" c.nixarch.packages.aur)
       )
       "nixarch.packages.aur/pacman: ${builtins.toJSON (evalSm { nixgpu.toolchain.enable = true; nixgpu.toolchain.vendor = "intel"; nixgpu.toolchain.capabilities.compute.enable = true; }).nixarch.packages}")
 

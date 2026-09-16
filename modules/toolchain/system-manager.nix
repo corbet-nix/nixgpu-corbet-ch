@@ -12,8 +12,8 @@
 # correct for nixfs (a genuine "Arch has nothing at all" gap) but would be WRONG here: this
 # catalogue's nixpkgs-only entries exist because nixpkgs has no combined-bundle equivalent to an
 # AUR package that already covers the same ground on Arch by a different name -- `compute`'s
-# `intel` cell resolves to the AUR `intel-oneapi-basekit-2025` (which `Provides: intel-oneapi-mkl,
-# intel-oneapi-dnnl, ...`, live-confirmed) PLUS two nixpkgs-only entries (`mkl`, `oneDNN`) that
+# `intel` cell resolves to the official `intel-oneapi-toolkit` (which `Provides:
+# intel-oneapi-mkl, intel-oneapi-dnnl, ...`, live-confirmed) PLUS two nixpkgs-only entries (`mkl`, `oneDNN`) that
 # exist purely so a NixOS host -- which has no such bundle to reach for -- still gets those
 # runtime libraries. Falling back to nixpkgs for those same two entries HERE would install a
 # second, redundant copy of functionality the AUR package already provides under Arch's own
