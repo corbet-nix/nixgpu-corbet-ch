@@ -189,8 +189,10 @@ in
       description = ''
         Selections that live in the AUR rather than an official repo, kept SEPARATE because
         `pacman -S` cannot resolve them -- it fails the whole transaction with "target not found".
-        `intel-oneapi-basekit-2025` and `openvino-bin` are AUR today; wired into
-        `nixarch.packages.aur` the same way `archPackages` is wired into `nixarch.packages.pacman`.
+        `openvino-bin` is AUR today; wired into `nixarch.packages.aur` the same way
+        `archPackages` is wired into `nixarch.packages.pacman`. (The Intel compute SDK used
+        to be the AUR `intel-oneapi-basekit-2025`; since 2026-09-16 it is the official
+        `intel-oneapi-toolkit`, so it no longer appears here.)
       '';
     };
 

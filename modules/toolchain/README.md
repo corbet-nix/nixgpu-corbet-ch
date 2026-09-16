@@ -64,9 +64,10 @@ Worked examples, weakest case first:
 - **`intel-npu-compiler`** -- substrate, same reasoning as `openvino-bin`: it compiles models FOR
   the NPU, the same role ROCm's own HIP compiler or CUDA's `nvcc` play for their vendors. A
   build-time tool for the device, not a thing that runs a model itself.
-- **`intel-oneapi-basekit-2025`** -- substrate. It's a driver-adjacent SDK (MKL, oneDNN, the
-  DPC++ compiler, VTune, Advisor) that `python-pytorch` itself depends on (see the obsolescence
-  section below) -- a framework needing it says nothing about which model anyone runs on top.
+- **`intel-oneapi-toolkit`** -- substrate. The official oneAPI SDK bundle (MKL, oneDNN,
+  the DPC++ compiler, VTune, Advisor) that `python-pytorch` and the SYCL runtimes resolve
+  against. Supersedes the AUR `intel-oneapi-basekit-2025` (retired 2026-09-16: it conflicts
+  with this toolkit while the toolkit is what the live dependency graph actually wants).
   `compute` capability.
 - **`openvino-genai-bin`** -- THE FIRST HARD ONE, and it lands in nixllm. Its own AUR `Depends On`
   is `python`, `python-numpy` -- it is a Python **pipeline API for generative-AI inference
@@ -74,17 +75,16 @@ Worked examples, weakest case first:
   `openvino-bin` runtime above, the same relationship llama.cpp has to a bare inference kernel.
   `Required By: intel-llm` (an app). The honest test question answers itself: nobody installs
   `openvino-genai-bin` except to run generative models.
-- **`llama.cpp-sycl-bin`** -- THE HARDEST ONE, called out explicitly because it is genuinely an
-  LLM tool built AGAINST a vendor runtime, which is exactly the shape that makes the boundary feel
-  blurry. It is llama.cpp -- an LLM inference **server** -- compiled against Intel's SYCL/oneAPI
-  backend instead of CPU or CUDA. Being vendor-specific does not make it substrate: CUDA's own
+- **official `llama-cpp` (+ `ggml-sycl`)** -- an LLM inference **server**, now nixllm's
+  territory (moved there 2026-09-16; the old AUR `llama.cpp-sycl-bin` was deleted
+  upstream). Being vendor-specific does not make it substrate: CUDA's own
   `llama.cpp` build is not part of `nixgpu.toolchain` either, and this repo's own operator has
   already named the general shape ("llama.cpp being obviously an llm tool"). What makes it FEEL
   close to the line is that it needs the SYCL runtime present to execute -- but needing a runtime
   is true of every app in nixllm's catalogue (the shared LLM broker needs ROCm too, and nixllm is
   not part of nixgpu for that reason). nixllm's territory.
 - **`intel-llm` / `intel-llm-convert`** -- easy once the above two land correctly: `intel-llm`'s
-  own AUR `Depends On` is `llama.cpp-sycl-bin`, `openvino-genai-bin`, `python-huggingface-hub` --
+  own `Depends On` is `llama-cpp`, `ggml-sycl`, `openvino-genai-bin`, `python-huggingface-hub` --
   an orchestration app wrapping two other nixllm-side tools plus a model-hub client. Nothing here
   is a driver or an SDK. nixllm's territory, alongside the already-correctly-filed
   `anythingllm-cli-bin`, `litert-lm`, `python-openai`, `python-openai-whisper`, `python-tiktoken`,
@@ -93,10 +93,10 @@ Worked examples, weakest case first:
   library tables: "you script against these, you never look at them").
 
 **Recommendation, not an edit made here** (out of this repo's scope; flag for whoever owns
-`nixllm`): `openvino-genai-bin`, `intel-llm`, `intel-llm-convert`, `llama.cpp-sycl-bin`,
+`nixllm`): `openvino-genai-bin`, `intel-llm`, `intel-llm-convert`, `llama-cpp` (+ `ggml-sycl`),
 `litert-lm`, `anythingllm-cli-bin`, `python-openai`, `python-openai-whisper`, `python-pyopencl`,
 `python-tiktoken`, `python-transformers` all belong in nixllm's own catalogue, not nixgpu's.
-`openvino-bin`, `intel-npu-compiler` and `intel-oneapi-basekit-2025` are the three that move the
+`openvino-bin`, `intel-npu-compiler` and `intel-oneapi-toolkit` are the three that move the
 OTHER way -- out of the informal "nixllm — 14" bucket in infra's `docs/undeclared-packages.md` and
 into this module's `aiInference`/`compute` capabilities, which is what actually declares them
 (see the infra wiring below).
@@ -126,6 +126,13 @@ thing that uses it. Neither repo currently declares the other's half; this modul
   not here.
 
 ## Obsolescence review
+
+> SUPERSEDED 2026-09-16 for two rows: `llama.cpp-sycl-bin` was deleted from the AUR
+> (PRQ#86548; `extra` ships SYCL natively as `llama-cpp` + `ggml-sycl`, declared in nixllm
+> since) and the AUR `intel-oneapi-basekit-2025` conflicts with the official
+> `intel-oneapi-toolkit`, which is what the live graph (`ggml-sycl`, `python-pytorch`)
+> resolves against (nixgpu declares the toolkit since). The table below is the 2026-08-04
+> record, kept as evidence; do not act on those two rows.
 
 Every package the operator flagged as possibly-obsolete, checked live against CORBET-ELITEBOOK's
 actual `pacman -Qi`/`paru -Si` output and this repo's pinned nixpkgs (`nix eval` against the exact
