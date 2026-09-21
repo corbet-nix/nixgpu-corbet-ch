@@ -108,11 +108,11 @@
         "narHash": "sha256-BfnFj865JuX2UqCWvhy7FPg/qKPziHzbYPTDV5KlUS8=",
         "rev": "60827e94a069b2bebe3e5c8a0ba7554fbb79c622",
         "type": "git",
-        "url": "https://github.com/julian-corbet/nixhost-corbet-ch"
+        "url": "https://github.com/corbet-nix/nixhost-corbet-ch"
       },
       "original": {
         "type": "git",
-        "url": "https://github.com/julian-corbet/nixhost-corbet-ch"
+        "url": "https://github.com/corbet-nix/nixhost-corbet-ch"
       }
     },
     "nixidy": {
