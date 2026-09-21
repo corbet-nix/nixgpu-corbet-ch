@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Evaluates modules/displaylink/ on BOTH planes, against stub host planes.
 #
 # Same reasoning as checks/evdi.nix: the module's output is a small number of exact strings and one

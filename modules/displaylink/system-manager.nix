@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/displaylink/system-manager.nix — the Arch/CachyOS implementation of nixgpu.displaylink.
 #
 # Nothing here builds or runs the manager: on Arch, pacman owns the binary AND the systemd unit.

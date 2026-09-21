@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 {
   description = "nixgpu - priority-based sharing of one GPU across Kubernetes, containers, and the desktop";
 
@@ -26,7 +27,7 @@
     # `_module.args`, so a consumer importing a module here sees an ordinary module function and
     # never needs to know `probeFact` exists.
     nixhost = {
-      url = "git+https://github.com/julian-corbet/nixhost-corbet-ch";
+      url = "git+https://github.com/corbet-nix/nixhost-corbet-ch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

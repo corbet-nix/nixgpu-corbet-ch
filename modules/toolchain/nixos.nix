@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/toolchain/nixos.nix — the NixOS implementation of nixgpu.toolchain.
 #
 # Sibling to system-manager.nix, and deliberately a separate real implementation rather than a

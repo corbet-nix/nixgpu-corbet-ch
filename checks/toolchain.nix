@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # checks/toolchain.nix — EVAL-TIME tests for the vendor × capability × platform model
 # (../modules/toolchain/, ../lib/catalogue.nix, ../lib/resolve.nix). Same three-layer split as the
 # sibling nixfs/nixoffice repos' own checks/default.nix:

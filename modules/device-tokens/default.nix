@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # device-tokens — the co-scheduling substrate: break one GPU with an in-kernel
 # driver into counted extended-resource "tokens" (lanes), so independent
 # engines (e.g. compute and a media/video engine) get their own small

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 #
 # The channel resolution: pure functions from a list of SELECTED catalogue entries (already
 # flattened out of ../lib/catalogue.nix's capability -> vendor -> [ entries ] shape by

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # vram-hog — a synthetic compute tenant for the bench.
 #
 # A Deployment that allocates a fixed amount of VRAM on the device-tokens

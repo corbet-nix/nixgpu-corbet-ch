@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # nixgpu.pressureWatcher — THE reactive core of the platform: a per-GPU-node DaemonSet that kills
 # (scales to 0) the lowest-priority in-cluster GPU pod when a higher-priority tenant starves while
 # the card is full, detects desktop thrash via the global GTT-spill counter in sysfs, and guards the

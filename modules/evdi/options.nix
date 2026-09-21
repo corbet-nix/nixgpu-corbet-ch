@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/evdi/options.nix — the virtual-DRM kernel module a DisplayLink dock needs, declared as
 # what it actually is: a permanent DRM device this host owns, not a peripheral that comes and goes.
 #

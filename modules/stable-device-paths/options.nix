@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # stable-device-paths — the host's COMPLETE DRM device inventory, and stable /dev/dri symlinks
 # generated from it, so a consumer never has to hardcode a numbered /dev/dri/cardN again.
 #

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Placeholder values for every nixidy module in this repository — the file that
 # makes the render check real. `nix flake check` renders all four arbiter modules
 # from here, so a module that stops evaluating, or that grows a required value

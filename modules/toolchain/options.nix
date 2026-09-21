@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/toolchain/options.nix — the HOST-side GPU compute toolchain: two questions about one
 # card, both declared once and resolved per platform. See ./README.md for the full design (the
 # vendor × capability × platform model, and the boundary this module draws against nixllm).

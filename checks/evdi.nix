@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Evaluates modules/evdi/ on BOTH planes, against stub host planes.
 #
 # WHY A STUB AND NOT A REAL nixosSystem: what is worth pinning about this module is a handful of

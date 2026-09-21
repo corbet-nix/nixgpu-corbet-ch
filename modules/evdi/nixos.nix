@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/evdi/nixos.nix — the NixOS implementation of nixgpu.evdi.
 #
 # Three statements, and each closes one of the three ways this fails silently (see

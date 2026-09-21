@@ -182,7 +182,7 @@ NixOS host.
   resolved to real package names per plane. See
   [modules/toolchain/README.md](modules/toolchain/README.md) for the full design
   and the boundary this module draws against the sibling
-  [nixllm](https://github.com/julian-corbet/nixllm-corbet-ch) project.
+  [nixllm](https://github.com/corbet-nix/nixllm-corbet-ch) project.
 
   ```nix
   nixgpu.toolchain = {
@@ -256,7 +256,7 @@ both.
 
 `nixgpu` is built for a declarative GitOps cluster: **nixidy-rendered
 manifests synced by Argo CD** — the spine that the sibling
-[nixk3s](https://github.com/julian-corbet/nixk3s-corbet-ch) project ships. If
+[nixk3s](https://github.com/corbet-nix/nixk3s-corbet-ch) project ships. If
 you hand-apply YAML, this project is not for you; the manifests are rendered,
 versioned, and reconciled, and the modules assume that delivery path.
 
@@ -264,17 +264,17 @@ versioned, and reconciled, and the modules assume that delivery path.
 
 Part of an interoperating set — usable independently, designed together:
 
-- [nixk3s](https://github.com/julian-corbet/nixk3s-corbet-ch) — the ground:
+- [nixk3s](https://github.com/corbet-nix/nixk3s-corbet-ch) — the ground:
   bare-metal k3s on NixOS + the nixidy → Argo CD GitOps spine.
-- [nixllm](https://github.com/julian-corbet/nixllm-corbet-ch) — the serving
+- [nixllm](https://github.com/corbet-nix/nixllm-corbet-ch) — the serving
   lane: one shared LLM broker where the model store IS the registry
   (implements this contract's B4/B10/B14/B15). Its generator mirrors this
   repo's `nixgpu.sysfs.vramTotalAttr` (see `pressure-watcher`'s README) for
   live VRAM size, instead of hardcoding amdgpu's attribute name a second time.
-- [nixapps](https://github.com/julian-corbet/nixapps-corbet-ch) — the
+- [nixapps](https://github.com/corbet-nix/nixapps-corbet-ch) — the
   tenants: curated app modules (image generation, TTS, …) that consume
   `nixgpu`'s three-line GPU contract.
 
-## License
+## Licence
 
-[MIT License](LICENSE) &copy; 2026 Julian Corbet
+Outbound licence is `MIT OR Apache-2.0`. See `LICENSE-MIT` and `LICENSE-APACHE`; every source file carries `SPDX-License-Identifier: MIT OR Apache-2.0`.

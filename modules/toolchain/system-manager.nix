@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/toolchain/system-manager.nix — the Arch/CachyOS implementation of nixgpu.toolchain.
 #
 # Feeds pacman/AUR package names into `nixarch.packages.pacman`/`.aur`, which is nixarch's own

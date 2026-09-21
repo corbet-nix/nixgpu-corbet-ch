@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # priority-ladder — the WHO-YIELDS-FIRST ladder for a shared GPU.
 #
 # LEVEL 2 / EDGE (nixidyModules): defines the ordering the arbiter (pressure-watcher)

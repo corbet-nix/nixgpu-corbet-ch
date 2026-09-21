@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Arch/CachyOS plane: system-manager has no `services.udev`, so write the rules file directly.
 # udev reads /etc/udev/rules.d, so an `environment.etc` entry is the whole mechanism.
 #

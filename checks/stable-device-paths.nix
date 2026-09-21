@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Evaluates modules/stable-device-paths/ for real: the device inventory's field guards, the derived
 # vendor map, the generated udev rules, and the two ambiguity refusals.
 #

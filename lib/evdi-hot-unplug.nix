@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Temporary carry for DisplayLink/evdi PR #581, against the current v1.15.0 release.
 #
 # v1.15.0 compares the USB notifier action with a bus-notifier constant. The numeric collision

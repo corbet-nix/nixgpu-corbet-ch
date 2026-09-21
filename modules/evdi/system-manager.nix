@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/evdi/system-manager.nix — the Arch/CachyOS implementation of nixgpu.evdi.
 #
 # Same three statements as the NixOS plane, expressed with the two mechanisms system-manager

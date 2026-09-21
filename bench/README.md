@@ -47,7 +47,7 @@ This bench is not a toy that runs anywhere — it is only meaningful against:
 
 - **An OpenAI-compatible door** — the one shared LLM server CONTRACT.md's
   B4 requires (e.g. the sibling
-  [nixllm](https://github.com/julian-corbet/nixllm-corbet-ch) broker, or any
+  [nixllm](https://github.com/corbet-nix/nixllm-corbet-ch) broker, or any
   server speaking the same `/v1/chat/completions` shape). You supply its
   base URL (`OPENAI_URL`) and, if it requires one, a bearer token
   (`OPENAI_API_KEY`).

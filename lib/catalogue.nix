@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 #
 # The vendor × capability catalogue: for each WORKLOAD a GPU host might want, what to install per
 # vendor, per platform. This is the second axis nixgpu answers, sitting beside `vendor` in

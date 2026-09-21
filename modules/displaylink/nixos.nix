@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/displaylink/nixos.nix — the NixOS implementation of nixgpu.displaylink.
 #
 # One long-running system service, and the interesting part is entirely in what it depends on.

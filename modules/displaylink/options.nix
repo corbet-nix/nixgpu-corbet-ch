@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/displaylink/options.nix — DisplayLinkManager, the proprietary userland half of a
 # DisplayLink dock. The kernel half is `nixgpu.evdi`, and it may not be on the same machine.
 #

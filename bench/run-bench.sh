@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # run-bench.sh — the nixgpu CONTRACT.md bench driver.
 #
 # bash + kubectl + curl + jq only. No python on the driver side

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # ondemand-front — the user-facing half of scale-to-zero on a shared GPU: the honest waiting page.
 #
 # LEVEL 2 / EDGE (nixidyModules): the announcement half of arbitrating

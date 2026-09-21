@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Apply the exact temporary upstream carry to the exact evdi release that needs it, then assert the
 # behavior at source level. This is intentionally stronger than proving that two URLs fetch: both
 # patches must still apply in order, the USB notifier must react to removal, and dynamically-created

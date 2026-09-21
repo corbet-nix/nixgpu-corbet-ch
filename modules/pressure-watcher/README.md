@@ -121,7 +121,7 @@ discrete GPU's kernel interface, not an opinion of this one app. Declared in
 this module's `default.nix` because pressure-watcher is nixgpu's only
 in-repo consumer today, but under the shared `nixgpu.sysfs` namespace on
 purpose, so any other consumer — another nixgpu module later, or a sibling
-repo such as [nixllm](https://github.com/julian-corbet/nixllm-corbet-ch)
+repo such as [nixllm](https://github.com/corbet-nix/nixllm-corbet-ch)
 (which needs `vramTotalAttr` for its own generator's fit-skip gate) — reads
 the SAME option instead of forking its own copy. A sibling repo mirrors this
 defensively (`config.nixgpu.sysfs.vramTotalAttr or <its own fallback>`, the

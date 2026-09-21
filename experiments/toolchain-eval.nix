@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Throwaway eval check for modules/toolchain -- NOT part of the module surface. Confirms the two
 # plane implementations resolve the same declared intent into each platform's own package naming,
 # and that the sdk/monitoring split actually separates. Safe to delete; nothing imports this file.
